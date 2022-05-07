@@ -1,0 +1,56 @@
+.search {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 1rem;
+}
+
+.search input {
+  height: 30px;
+  width: 350px;
+}
+
+.search button {
+  border: none;
+  width: 100px;
+}
+
+.forecast-cidade {
+  display: flex;
+  justify-content: center;
+}
+
+.forecast-cidade p {
+  font-size: 1.7rem;
+  margin: 0;
+  padding: 3rem 0;
+}
+
+.forecast {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.forecast-day {
+  align-items: center;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  width: 300px;
+}
+
+.forecast-day img {
+  height: 100px;
+}
+
+.forecast-day p {
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.forecast-temp {
+  display: flex;
+  gap: 2rem;
+}
