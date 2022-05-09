@@ -3,6 +3,8 @@ import axios from "axios";
 import Key from "./Key.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faArrowLeft,
+  faArrowRight,
   faDroplet,
   faThermometerEmpty,
   faThermometerFull,
@@ -12,6 +14,9 @@ import "../styles/Search.css";
 function Search() {
   const [cidade, setCidade] = useState("");
   const [dados, setDados] = useState();
+  const [today, setToday] = useState();
+  const [hourTemp, setHourTemp] = useState();
+  const [details, setDetails] = useState(false);
   const date = new Date();
   const months = [
     "Janeiro",
@@ -31,9 +36,33 @@ function Search() {
   const url = `http://api.weatherapi.com/v1/forecast.json?key=${Key}&q=${cidade}&days=6&aqi=no&alerts=no`;
 
   function handleSearch() {
-    const call = axios.get(url).then((response) => setDados(response.data));
+    axios.get(url).then((response) => setDados(response.data));
     setCidade("");
-    console.log(dados);
+    setDetails(false);
+  }
+
+  function showDetails() {
+    setDetails(true);
+    const hour = Number(dados.location.localtime.slice(-5, -3));
+    setToday(dados.forecast.forecastday[0].hour);
+    if (hour <= 22) {
+      setHourTemp(dados.forecast.forecastday[0].hour[hour + 1]);
+    } else {
+      setHourTemp(dados.forecast.forecastday[0].hour[0]);
+    }
+  }
+
+  function changeHour(esquerda) {
+    const hour = Number(hourTemp.time.slice(-5, -3));
+    if (hour >= 1 && esquerda) {
+      setHourTemp(today[hour - 1]);
+    } else if (hour === 0 && esquerda) {
+      setHourTemp(today[23]);
+    } else if (hour <= 22 && !esquerda) {
+      setHourTemp(today[hour + 1]);
+    } else if (hour === 23 && !esquerda) {
+      setHourTemp(today[0]);
+    }
   }
 
   return (
@@ -80,7 +109,36 @@ function Search() {
                   <img src={dados.current.condition.icon} alt="icon" />
                 </div>
               </div>
+
+              {!details && (
+                <div onClick={showDetails} className="temp-verMais">
+                  <p>Ver Mais</p>
+                </div>
+              )}
+              {details && (
+                <div className="container-today">
+                  <div onClick={() => changeHour(true)} className="today-arrow">
+                    <FontAwesomeIcon icon={faArrowLeft} />
+                  </div>
+
+                  <div className="today-info">
+                    <div className="today-details">
+                      <p className="today-hour">{hourTemp.time.slice(-5)}</p>
+                      <p className="today-temp">{hourTemp.temp_c}°C</p>
+                    </div>
+                    <img src={hourTemp.condition.icon} alt="condition" />
+                  </div>
+
+                  <div
+                    onClick={() => changeHour(false)}
+                    className="today-arrow"
+                  >
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </div>
+                </div>
+              )}
             </div>
+
             <div className="forecast">
               {dados.forecast.forecastday.map((i, key) => (
                 <div key={key} className="forecast-day">
