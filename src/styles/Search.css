@@ -2,125 +2,136 @@
   overflow: hidden;
 }
 
+.site-name {
+  font-size: 1rem;
+  padding: 1rem 0;
+}
+
+.site-name h1 {
+  margin: 0;
+  text-align: center;
+}
+
 /*---PESQUISA---*/
 .search {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  margin: 0 auto;
   padding-top: 1rem;
+  width: 90%;
 }
 
 .search input {
   background-color: #fff;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.259);
   font-size: 1rem;
-  height: 40px;
-  padding: 0 1rem;
-  width: 350px;
+  height: 35px;
+  padding: 0 0.5rem;
+  width: 100%;
 }
 
-.search input::placeholder {
-  border: none;
+.search input:focus {
+  outline: none;
 }
 
 .search button {
-  background-color: #0275d8;
+  background-color: #3a83c3;
   border: none;
+  color: #fff;
   cursor: pointer;
-  width: 100px;
-}
-
-.forecast-current {
-  background-color: #fff;
-  margin: 2rem 0;
-  padding: 1rem;
+  font-size: 0.8rem;
+  width: 110px;
 }
 
 /*---ATUAL---*/
+.forecast-current {
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 2rem auto;
+}
+
 .forecast-current p {
   margin: 0;
 }
 
-.forecast-current hr {
-  margin: 0;
-  width: 100%;
-}
-
-.current-name {
+.current-city {
   align-items: center;
+  background-color: #3a83c3;
+  color: #ffffff;
   display: flex;
-  flex-direction: column;
-}
-
-.current-name p:last-child {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.current-temp {
-  align-items: center;
-  display: flex;
-  font-size: 2.5rem;
-  gap: 2rem;
-  justify-content: center;
-  padding: 1.3rem 0;
-}
-
-.current-temp img {
-  width: 60px;
-}
-
-.current-hour {
-  display: flex;
-  font-size: 0.8rem;
   justify-content: space-between;
-  padding-bottom: 0.5rem;
+  height: 25px;
+  padding: 0 1.5rem;
+}
+
+.current-city p {
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .current-details {
   display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.current-info {
+  display: flex;
   flex-direction: column;
-}
-
-.details-rain,
-.details-wind {
-  color: #0275d8;
-  display: flex;
-  justify-content: center;
-  padding: 0.5rem 0;
-}
-
-.details-wind {
-  color: #63bf57;
-}
-
-/*---INFO DA CIDADE---*/
-.forecast-text {
-  display: flex;
   justify-content: center;
 }
 
-.forecast-text p {
+.current-info p {
   margin: 0;
-  padding: 1rem 0;
+}
+
+.info-hour {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-bottom: 0.4rem;
+}
+
+.info-temp {
+  font-size: 3rem;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+
+.info-plus {
+  color: #3a83c3;
+}
+
+.current-image img {
+  width: 150px;
 }
 
 /*---CONTAINER DOS DIAS----*/
 .forecast {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.2rem;
 }
 
 /*---CONTAINER GERAL DOS DIAS---*/
 .forecast-day {
   align-items: center;
   background-color: #fff;
-  display: grid;
-  grid-template-columns: 0.4fr 1fr;
-  height: 110px;
-  width: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast-date {
+  align-items: center;
+  background-color: #3a83c3;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  height: 25px;
+  width: 100%;
+}
+
+.forecast-date p {
+  margin: 0;
 }
 
 /*---IMAGEM---*/
@@ -128,34 +139,33 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .forecast-image img {
-  width: 50px;
+  width: 75px;
 }
 
 .forecast-image p {
-  font-size: 0.85rem;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin: 0;
 }
 
 /*---CONTAINER DETALHES---*/
 .forecast-details {
+  align-items: start;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 /*---TEMPS---*/
 .forecast-temp {
   display: flex;
-  justify-content: space-between;
-  padding-right: 1rem;
-}
-
-.temp-container {
-  display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  font-size: 1.1rem;
+  justify-content: center;
+  padding-bottom: 1rem;
 }
 
 .temp-min {
@@ -165,7 +175,7 @@
 }
 
 .temp-min svg {
-  color: #0275d8;
+  color: #3a83c3;
 }
 
 .temp-max {
@@ -179,12 +189,6 @@
 }
 
 /*---CHUVA---*/
-.forecast-rain {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 1rem;
-}
-
 .rain-details {
   align-items: center;
   display: flex;
@@ -192,5 +196,121 @@
 }
 
 .rain-details svg {
-  color: #0275d8;
+  color: #3a83c3;
+}
+
+@media (min-width: 768px) {
+  .search {
+    margin: 0 auto;
+    width: 500px;
+  }
+
+  .forecast-current {
+    align-items: center;
+    width: 500px;
+  }
+
+  .forecast {
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .name-search {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+
+  .site-name {
+    padding: 0;
+  }
+
+  .search {
+    margin: 0;
+    justify-content: flex-end;
+    padding: 0;
+  }
+
+  .search input {
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    height: 30px;
+    width: 240px;
+  }
+
+  .search button {
+    font-size: 0.75rem;
+    height: 30px;
+
+    width: 80px;
+  }
+
+  .forecast-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+  }
+
+  .forecast-current {
+    margin: 0;
+  }
+
+  .current-details {
+    height: calc(100% - 25px);
+    justify-content: space-between;
+    padding: 0 1.5rem;
+  }
+
+  .info-hour {
+    font-size: 1.5rem;
+  }
+
+  .info-temp {
+    font-size: 3.5rem;
+  }
+
+  .info-plus {
+    font-size: 1.1rem;
+  }
+
+  .current-image {
+    align-items: center;
+    display: flex;
+  }
+
+  .current-image img {
+    width: 180px;
+  }
+
+  .forecast-details {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+
+  .forecast {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .forecast-day {
+    width: 300px;
+  }
+
+  .forecast-temp {
+    gap: 0.5rem;
+    padding: 0;
+  }
+
+  .temps {
+    display: flex;
+    gap: 1rem;
+  }
 }
