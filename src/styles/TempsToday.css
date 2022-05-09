@@ -1,0 +1,59 @@
+/*---CONTAINER---*/
+.container-today {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.container-today svg {
+  color: #fff;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+
+/*---SETAS---*/
+.today-arrow {
+  background-color: #3a83c3;
+  border-radius: 50%;
+  border: 6px solid #3a83c3;
+  display: flex;
+}
+
+/*---CONTAINER INFOS---*/
+.today-info {
+  align-items: center;
+  display: flex;
+  gap: 3rem;
+}
+
+.today-info p {
+  margin: 0;
+}
+
+.today-info img {
+  width: 80px;
+}
+
+/*---DETALHES---*/
+.today-details {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/*---HORA---*/
+.today-hour {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/*---TEMPERATURA---*/
+.today-temp {
+  font-size: 1.6rem;
+  font-weight: 600;
+}

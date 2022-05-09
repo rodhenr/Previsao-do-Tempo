@@ -1,0 +1,90 @@
+/*---NOME DA CIDADE E DATA---*/
+.current-city {
+  align-items: center;
+  background-color: #3a83c3;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  height: 25px;
+  padding: 0 1.5rem;
+}
+
+.current-city p {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/*---CONTAINER DAS INFOS E IMAGEM---*/
+.current-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+/*---CONTAINER INFOS---*/
+.current-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.current-info p {
+  margin: 0;
+}
+
+.info-hour {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-bottom: 0.4rem;
+}
+
+.info-temp {
+  font-size: 3rem;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+
+.info-plus {
+  color: #3a83c3;
+}
+
+/*---CONTAINER IMAGEM---*/
+.current-image img {
+  width: 150px;
+}
+
+@media (min-width: 1024px) {
+  .forecast-current {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .current-details {
+    justify-content: space-between;
+    padding: 0 1.5rem;
+  }
+
+  .info-hour {
+    font-size: 1.5rem;
+  }
+
+  .info-temp {
+    font-size: 3.5rem;
+  }
+
+  .info-plus {
+    font-size: 1.1rem;
+  }
+
+  .current-image {
+    align-items: center;
+    display: flex;
+  }
+
+  .current-image img {
+    width: 180px;
+  }
+}
