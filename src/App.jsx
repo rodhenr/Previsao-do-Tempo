@@ -11,13 +11,18 @@ function App() {
   const [cidade, setCidade] = useState("");
   const [dados, setDados] = useState();
   const [today, setToday] = useState();
+  const [loading, setLoading] = useState(false);
   const [hourTemp, setHourTemp] = useState();
   const [details, setDetails] = useState(false);
 
   const url = `http://api.weatherapi.com/v1/forecast.json?key=${Key}&q=${cidade}&days=6&aqi=no&alerts=no`;
 
   function searchCity() {
+    setLoading(true);
     axios.get(url).then((response) => setDados(response.data));
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     setCidade("");
     setDetails(false);
   }
@@ -50,7 +55,7 @@ function App() {
     <div>
       <Search searchCity={searchCity} cidade={cidade} setCidade={setCidade} />
       <div className="forecast-container">
-        {dados ? (
+        {dados && !loading ? (
           <>
             <div className="forecast-current">
               <Current dados={dados} />
@@ -65,8 +70,25 @@ function App() {
             <Forecast dados={dados} />
           </>
         ) : (
-          <div className="no-results">
-            <p>Nenhuma cidade pesquisada</p>
+          <div>
+            {loading ? (
+              <div className="loading-container">
+                <div class="lds-roller">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            ) : (
+              <div className="no-results">
+                <p>Nenhuma cidade pesquisada/encontrada</p>
+              </div>
+            )}
           </div>
         )}
       </div>

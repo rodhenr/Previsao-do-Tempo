@@ -2,6 +2,7 @@
 .container-today {
   align-items: center;
   background-color: #fff;
+  border-top: 2px solid rgba(0, 0, 0, 0.065);
   display: flex;
   gap: 2rem;
   justify-content: space-between;

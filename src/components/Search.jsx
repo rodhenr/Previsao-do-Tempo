@@ -1,6 +1,14 @@
 import "../styles/Search.css";
 
 function Search({ searchCity, cidade, setCidade }) {
+  function handleEnter(event) {
+    if (event.keyCode === 13) {
+      searchCity();
+    } else {
+      return;
+    }
+  }
+
   return (
     <div className="search">
       <div className="name-search">
@@ -13,6 +21,7 @@ function Search({ searchCity, cidade, setCidade }) {
             placeholder="Digite a cidade desejada"
             onChange={(e) => setCidade(e.target.value)}
             value={cidade}
+            onKeyDown={(e) => handleEnter(e)}
           />
           <button onClick={() => searchCity()}>Procurar</button>
         </div>
