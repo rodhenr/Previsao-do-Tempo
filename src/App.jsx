@@ -15,7 +15,7 @@ function App() {
   const [hourTemp, setHourTemp] = useState();
   const [details, setDetails] = useState(false);
 
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${Key}&q=${cidade}&days=6&aqi=no&alerts=no`;
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${Key}&q=${cidade}&days=6&aqi=no&alerts=no`;
 
   function searchCity() {
     setLoading(true);
