@@ -12,7 +12,9 @@ function Forecast({ dados }) {
       {dados.forecast.forecastday.map((i, key) => (
         <div key={key} className="forecast-day">
           <div className="forecast-date">
-            <p>{i.date.slice(8, 10)}/{i.date.slice(5, 7)}</p>
+            <p>
+              {i.date.slice(8, 10)}/{i.date.slice(5, 7)}
+            </p>
           </div>
           <div className="forecast-details">
             <div className="forecast-image">
@@ -20,13 +22,13 @@ function Forecast({ dados }) {
             </div>
             <div className="forecast-temp">
               <div className="temps">
-                <div className="temp-min">
-                  <FontAwesomeIcon icon={faThermometerEmpty} />
-                  <span>{i.day.mintemp_c}°C</span>
-                </div>
                 <div className="temp-max">
                   <FontAwesomeIcon icon={faThermometerFull} />
                   <span>{i.day.maxtemp_c}°C</span>
+                </div>
+                <div className="temp-min">
+                  <FontAwesomeIcon icon={faThermometerEmpty} />
+                  <span>{i.day.mintemp_c}°C</span>
                 </div>
               </div>
               <div className="rain-details">

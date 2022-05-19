@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Key from "./components/Key.tsx";
 import TempsToday from "./components/TempsToday";
@@ -15,14 +15,18 @@ function App() {
   const [hourTemp, setHourTemp] = useState();
   const [details, setDetails] = useState(false);
 
+  useEffect(() => {
+    if (dados) {
+      setLoading(false);
+    }
+  }, [dados]);
+
   const url = `https://api.weatherapi.com/v1/forecast.json?key=${Key}&q=${cidade}&days=6&aqi=no&alerts=no`;
 
   function searchCity() {
+    setDados("");
     setLoading(true);
     axios.get(url).then((response) => setDados(response.data));
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
     setCidade("");
     setDetails(false);
   }
@@ -55,7 +59,7 @@ function App() {
     <div>
       <Search searchCity={searchCity} cidade={cidade} setCidade={setCidade} />
       <div className="forecast-container">
-        {dados && !loading ? (
+        {dados ? (
           <>
             <div className="forecast-current">
               <Current dados={dados} />
@@ -69,26 +73,22 @@ function App() {
             </div>
             <Forecast dados={dados} />
           </>
+        ) : loading ? (
+          <div className="loading-container">
+            <div className="lds-roller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         ) : (
-          <div>
-            {loading ? (
-              <div className="loading-container">
-                <div className="lds-roller">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-              </div>
-            ) : (
-              <div className="no-results">
-                <p>Nenhuma cidade pesquisada/encontrada</p>
-              </div>
-            )}
+          <div className="no-results">
+            <p>Nenhuma cidade pesquisada/encontrada</p>
           </div>
         )}
       </div>
