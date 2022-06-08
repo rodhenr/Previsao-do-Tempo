@@ -12,7 +12,7 @@ function Forecast({ dados }) {
       {dados.forecast.forecastday.map((i, key) => (
         <div key={key} className="forecast-day">
           <div className="forecast-date">
-            <p>
+            <p data-cy={`forecast${key}`}>
               {i.date.slice(8, 10)}/{i.date.slice(5, 7)}
             </p>
           </div>

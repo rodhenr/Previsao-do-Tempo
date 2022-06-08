@@ -20,10 +20,10 @@ function Current({ dados }) {
   return (
     <>
       <div className="current-city">
-        <p>
+        <p data-cy="city-name">
           {dados.location.name}, {dados.location.country}
         </p>
-        <p>
+        <p data-cy="time">
           {date.getDate()} de {months[date.getMonth()]}
         </p>
       </div>

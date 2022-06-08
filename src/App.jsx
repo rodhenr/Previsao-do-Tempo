@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import Key from "./components/Key.tsx";
 import TempsToday from "./components/TempsToday";
@@ -14,21 +14,29 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [hourTemp, setHourTemp] = useState();
   const [details, setDetails] = useState(false);
-
-  useEffect(() => {
-    if (dados) {
-      setLoading(false);
-    }
-  }, [dados]);
+  const [mensagem, setMensagem] = useState("Nenhuma consulta para exibir");
 
   const url = `https://api.weatherapi.com/v1/forecast.json?key=${Key}&q=${cidade}&days=6&aqi=no&alerts=no`;
 
-  function searchCity() {
-    setDados("");
+  function cityInput(e) {
+    setCidade(e.target.value);
+  }
+
+  async function searchCity() {
     setLoading(true);
-    axios.get(url).then((response) => setDados(response.data));
-    setCidade("");
-    setDetails(false);
+    await axios
+      .get(url)
+      .then((resp) => {
+        setDados(resp.data);
+        setCidade("");
+        setDetails(false);
+        setLoading(false);
+      })
+      .catch(() => {
+        setMensagem(`A cidade ${cidade} não foi encontrada`);
+        setLoading(false);
+        setDados("");
+      });
   }
 
   function showDetails() {
@@ -57,14 +65,18 @@ function App() {
 
   return (
     <div>
-      <Search searchCity={searchCity} cidade={cidade} setCidade={setCidade} />
-      <div className="forecast-container">
+      <Search searchCity={searchCity} cidade={cidade} cityInput={cityInput} />
+      <div>
         {dados ? (
-          <>
+          <div className="forecast-container" data-cy="data">
             <div className="forecast-current">
               <Current dados={dados} />
               {!details ? (
-                <div onClick={showDetails} className="temp-verMais">
+                <div
+                  onClick={showDetails}
+                  className="temp-verMais"
+                  data-cy="see-more"
+                >
                   <p>Ver Mais</p>
                 </div>
               ) : (
@@ -72,7 +84,7 @@ function App() {
               )}
             </div>
             <Forecast dados={dados} />
-          </>
+          </div>
         ) : loading ? (
           <div className="loading-container">
             <div className="lds-roller">
@@ -88,7 +100,7 @@ function App() {
           </div>
         ) : (
           <div className="no-results">
-            <p>Nenhuma cidade pesquisada/encontrada</p>
+            <p data-cy="message">{mensagem}</p>
           </div>
         )}
       </div>

@@ -1,6 +1,6 @@
 import "../styles/Search.css";
 
-function Search({ searchCity, cidade, setCidade }) {
+function Search({ searchCity, cidade, cityInput }) {
   function handleEnter(event) {
     if (event.keyCode === 13) {
       searchCity();
@@ -17,13 +17,16 @@ function Search({ searchCity, cidade, setCidade }) {
         </div>
         <div className="search-bar">
           <input
+            data-cy="search-input"
             type="text"
             placeholder="Digite a cidade desejada"
-            onChange={(e) => setCidade(e.target.value)}
+            onChange={cityInput}
             value={cidade}
             onKeyDown={(e) => handleEnter(e)}
           />
-          <button onClick={() => searchCity()}>Procurar</button>
+          <button onClick={() => searchCity()} data-cy="search-button">
+            Procurar
+          </button>
         </div>
       </div>
     </div>
