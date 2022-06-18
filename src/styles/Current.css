@@ -2,11 +2,13 @@
 .current-city {
   align-items: center;
   background-color: #3a83c3;
+  box-sizing: border-box;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
   height: 25px;
   padding: 0 1.5rem;
+  width: 100%;
 }
 
 .current-city p {
@@ -63,8 +65,10 @@
   }
 
   .current-details {
+    box-sizing: border-box;
     justify-content: space-between;
     padding: 0 1.5rem;
+    width: 100%;
   }
 
   .info-hour {

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
-import Key from "./components/Key.tsx";
+
 import TempsToday from "./components/TempsToday";
-import "./styles/App.css";
 import Current from "./components/Current";
 import Forecast from "./components/Forecast";
 import Search from "./components/Search";
+
+import "./styles/App.css";
 
 function App() {
   const [cidade, setCidade] = useState("");
@@ -16,8 +17,6 @@ function App() {
   const [details, setDetails] = useState(false);
   const [mensagem, setMensagem] = useState("Nenhuma consulta para exibir");
 
-  const url = `https://api.weatherapi.com/v1/forecast.json?key=${Key}&q=${cidade}&days=6&aqi=no&alerts=no`;
-
   function cityInput(e) {
     setCidade(e.target.value);
   }
@@ -25,7 +24,11 @@ function App() {
   async function searchCity() {
     setLoading(true);
     await axios
-      .get(url)
+      .get("https://backend-weather-rod.herokuapp.com/search", {
+        params: {
+          cidade,
+        },
+      })
       .then((resp) => {
         setDados(resp.data);
         setCidade("");
