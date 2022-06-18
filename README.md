@@ -3,6 +3,7 @@ Uma aplicação simples de previsão do tempo.
 Para este projeto foram utilizadas as seguintes tecnologias:
 
 - [React](https://pt-br.reactjs.org/)
+- [Cypress](https://www.cypress.io/)
 
 ## Live Demo
 
