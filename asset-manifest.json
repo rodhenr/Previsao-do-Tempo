@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Previsao-do-Tempo/static/css/main.0e2d0e3c.css",
-    "main.js": "/Previsao-do-Tempo/static/js/main.c920a9a0.js",
+    "main.css": "/Previsao-do-Tempo/static/css/main.5b87c97d.css",
+    "main.js": "/Previsao-do-Tempo/static/js/main.ea9ffd02.js",
     "static/js/787.13d76ca7.chunk.js": "/Previsao-do-Tempo/static/js/787.13d76ca7.chunk.js",
     "index.html": "/Previsao-do-Tempo/index.html",
-    "main.0e2d0e3c.css.map": "/Previsao-do-Tempo/static/css/main.0e2d0e3c.css.map",
-    "main.c920a9a0.js.map": "/Previsao-do-Tempo/static/js/main.c920a9a0.js.map",
+    "main.5b87c97d.css.map": "/Previsao-do-Tempo/static/css/main.5b87c97d.css.map",
+    "main.ea9ffd02.js.map": "/Previsao-do-Tempo/static/js/main.ea9ffd02.js.map",
     "787.13d76ca7.chunk.js.map": "/Previsao-do-Tempo/static/js/787.13d76ca7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0e2d0e3c.css",
-    "static/js/main.c920a9a0.js"
+    "static/css/main.5b87c97d.css",
+    "static/js/main.ea9ffd02.js"
   ]
 }
