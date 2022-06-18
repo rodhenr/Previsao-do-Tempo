@@ -4,6 +4,7 @@ Para este projeto foram utilizadas as seguintes tecnologias:
 
 - [React](https://pt-br.reactjs.org/)
 - [Cypress](https://www.cypress.io/)
+- [Express](https://expressjs.com/pt-br/)
 
 ## Live Demo
 
