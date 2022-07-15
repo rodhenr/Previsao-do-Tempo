@@ -16,6 +16,8 @@ function App() {
   const [hourTemp, setHourTemp] = useState();
   const [details, setDetails] = useState(false);
   const [mensagem, setMensagem] = useState("Nenhuma consulta para exibir");
+  const { REACT_APP_BASE_URL } = process.env;
+  const baseUrl = REACT_APP_BASE_URL || "http://localhost:8080/";
 
   function cityInput(e) {
     setCidade(e.target.value);
@@ -24,7 +26,7 @@ function App() {
   async function searchCity() {
     setLoading(true);
     await axios
-      .get("https://backend-weather-rod.herokuapp.com/search", {
+      .get(`${baseUrl}search`, {
         params: {
           cidade,
         },

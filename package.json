@@ -1,13 +1,14 @@
 {
   "name": "weather",
   "version": "0.1.0",
-  "homepage": "https://rodhenr.github.io/Previsao-do-Tempo/",
+  "homepage": "https://rodhenr.github.io/Previsao-do-Tempo-FrontEnd/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "cypress": "^10.0.3",
+    "eslint-plugin-cypress": "^2.12.1",
     "gh-pages": "^4.0.0"
   }
 }
