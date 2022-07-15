@@ -3,7 +3,7 @@
 Uma aplicação de previsão do tempo que utiliza a API do [Weather API](https://www.weatherapi.com/).
 
 <p align="center">
-<img alt="gif" src="https://media3.giphy.com/media/nE0RX5y5KAtf3tZSOa/giphy.gif?cid=790b76112fa6720521f27f25e9945de4af3d80d229a6046f&rid=giphy.gif&ct=g" />
+<img alt="gif" src="https://media1.giphy.com/media/0sF6VcTIXUQuaR9ZeE/giphy.gif?cid=790b76119e4e0ba3011cf646d57c094c91de3dbff67c5861&rid=giphy.gif&ct=g" />
 </p>
 
 ## :man_technologist: Tecnologias
